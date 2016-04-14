@@ -1,5 +1,5 @@
-# UUID          Group Name
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
-0a59011ac1a026162938b105adfa74268e9973a6       	tripleo-image-elements-distgit-core
-bee0114791cd3cd077df2c9b876bba1e25223745        	tripleo-image-elements-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+0a59011ac1a026162938b105adfa74268e9973a6	tripleo-image-elements-distgit-core
+bee0114791cd3cd077df2c9b876bba1e25223745	openstack/tripleo-image-elements-distgit-ptl
+global:Registered-Users                 	Registered Users
