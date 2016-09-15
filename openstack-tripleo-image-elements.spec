@@ -8,7 +8,7 @@ Release:    XXX
 License:	ASL 2.0
 Group:		System Environment/Base
 URL:		https://wiki.openstack.org/wiki/TripleO
-Source0:	http://tarballs.openstack.org/tripleo-image-elements/tripleo-image-elements-%{version}.tar.gz
+Source0:	https://tarballs.openstack.org/tripleo-image-elements/tripleo-image-elements-%{version}.tar.gz
 
 BuildArch:	noarch
 BuildRequires:	python
