@@ -19,6 +19,7 @@ BuildRequires:	python-d2to1
 BuildRequires:	python-pbr
 
 Requires:	diskimage-builder
+Requires:       /usr/bin/lsb_release
 
 %description
 OpenStack TripleO Image Elements is a collection of elements for
