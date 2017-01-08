@@ -37,39 +37,6 @@ program.
 # remove .git-keep-empty files that get installed
 find %{buildroot} -name .git-keep-empty | xargs rm -f
 
-%post
-manifest_file=/etc/dib-manifests/dib-element-manifest
-
-if [ -f $manifest_file ]; then
-    source /usr/share/diskimage-builder/lib/common-functions
-    TMP_HOOKS_PATH=$(mktemp -d)
-    IMAGE_ELEMENT=$(cat $manifest_file)
-    ELEMENTS_PATH=/usr/share/instack-undercloud/:/usr/share/tripleo-image-elements/:/usr/share/diskimage-builder/elements/
-    generate_hooks
-
-    # os-apply-config templates
-    TEMPLATE_ROOT=/usr/libexec/os-apply-config/templates
-    if [ -d $TEMPLATE_ROOT ]; then
-	TEMPLATE_SOURCE=$TMP_HOOKS_PATH/os-apply-config
-	rsync --delete --exclude='.*.swp' -Cr $TEMPLATE_SOURCE/ $TEMPLATE_ROOT/
-    fi
-
-    # os-refresh-config scripts
-    SCRIPT_BASE=/usr/libexec/os-refresh-config
-    if [ -d $SCRIPT_BASE ]; then
-	SCRIPT_SOURCE=$TMP_HOOKS_PATH/os-refresh-config
-	rsync --delete -r $SCRIPT_SOURCE/ $SCRIPT_BASE/
-    fi
-
-    # bin files
-    if [ -d /usr/local/bin ]; then
-        install -m 0755 -o root -g root $TMP_HOOKS_PATH/bin/* /usr/local/bin
-    fi
-fi
-
-# be sure to always exit true
-true
-
 %files
 %doc LICENSE
 %doc README.md
