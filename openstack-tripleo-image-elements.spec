@@ -79,3 +79,4 @@ true
 %{_datadir}/tripleo-image-elements
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/tripleo-image-elements/commit/?id=27c9206b6bb2d554e2cfc650050e03d39554c404
