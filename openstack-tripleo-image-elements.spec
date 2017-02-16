@@ -1,15 +1,20 @@
+%global milestone .0rc1
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # Turn off the brp-python-bytecompile script
 %global __os_install_post %(echo '%{__os_install_post}' | sed -e 's!/usr/lib[^[:space:]]*/brp-python-bytecompile[[:space:]].*$!!g')
 
 Name:		openstack-tripleo-image-elements
 Summary:	OpenStack TripleO Image Elements for diskimage-builder
-Version:    XXX
-Release:    XXX
+Version:    6.0.0
+Release:    0.1%{?milestone}%{?dist}
 License:	ASL 2.0
 Group:		System Environment/Base
 URL:		https://wiki.openstack.org/wiki/TripleO
 Source0:	https://tarballs.openstack.org/tripleo-image-elements/tripleo-image-elements-%{upstream_version}.tar.gz
+
+#
+# patches_base=6.0.0.0rc1
+#
 
 BuildArch:	noarch
 BuildRequires:	python
@@ -79,3 +84,6 @@ true
 %{_datadir}/tripleo-image-elements
 
 %changelog
+* Thu Feb 16 2017 Alfredo Moralejo <amoralej@redhat.com> 6.0.0-0.1.0rc1
+- Update to 6.0.0.0rc1
+
