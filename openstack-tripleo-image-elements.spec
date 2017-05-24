@@ -5,7 +5,7 @@
 Name:		openstack-tripleo-image-elements
 Summary:	OpenStack TripleO Image Elements for diskimage-builder
 Version:    5.3.0
-Release:    1%{?dist}
+Release:    2%{?dist}
 License:	ASL 2.0
 Group:		System Environment/Base
 URL:		https://wiki.openstack.org/wiki/TripleO
@@ -46,6 +46,9 @@ find %{buildroot} -name .git-keep-empty | xargs rm -f
 %{_datadir}/tripleo-image-elements
 
 %changelog
+* Wed May 24 2017 Alan Pevec <apevec AT redhat.com> - 5.3.0-2
+- Remove %post script for orc scripts
+
 * Thu Apr 27 2017 rdo-trunk <javier.pena@redhat.com> 5.3.0-1
 - Update to 5.3.0
 
