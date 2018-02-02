@@ -46,3 +46,4 @@ find %{buildroot} -name .git-keep-empty | xargs rm -f
 %{_datadir}/tripleo-image-elements
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/tripleo-image-elements/commit/?id=13f1dd451d93d0efd2278223f2ac477b01f3b885
