@@ -14,9 +14,9 @@ Source0:	https://tarballs.openstack.org/tripleo-image-elements/tripleo-image-ele
 BuildArch:	noarch
 BuildRequires:	python
 BuildRequires:	python2-devel
-BuildRequires:	python-setuptools
+BuildRequires:	python2-setuptools
 BuildRequires:	python-d2to1
-BuildRequires:	python-pbr
+BuildRequires:	python2-pbr
 
 Requires:	diskimage-builder
 
