@@ -1,14 +1,14 @@
 # Macros for py2/py3 compatibility
 %if 0%{?fedora} || 0%{?rhel} > 7
-%global pydefault 3
+%global pyver 3
 %else
-%global pydefault 2
+%global pyver 2
 %endif
 
-%global pydefault_bin python%{pydefault}
-%global pydefault_sitelib %python%{pydefault}_sitelib
-%global pydefault_install %py%{pydefault}_install
-%global pydefault_build %py%{pydefault}_build
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
 # End of macros for py2/py3 compatibility
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -25,13 +25,13 @@ URL:		https://wiki.openstack.org/wiki/TripleO
 Source0:	https://tarballs.openstack.org/tripleo-image-elements/tripleo-image-elements-%{upstream_version}.tar.gz
 
 BuildArch:	noarch
-BuildRequires:	python%{pydefault}-devel
-BuildRequires:	python%{pydefault}-setuptools
-BuildRequires:	python%{pydefault}-pbr
-%if %{pydefault} == 2
+BuildRequires:	python%{pyver}-devel
+BuildRequires:	python%{pyver}-setuptools
+BuildRequires:	python%{pyver}-pbr
+%if %{pyver} == 2
 BuildRequires:	python-d2to1
 %else
-BuildRequires:	python%{pydefault}-d2to1
+BuildRequires:	python%{pyver}-d2to1
 %endif
 
 Requires:	diskimage-builder
@@ -45,10 +45,10 @@ program.
 %setup -q -n tripleo-image-elements-%{upstream_version}
 
 %build
-%{pydefault_build}
+%{pyver_build}
 
 %install
-%{pydefault_install}
+%{pyver_install}
 
 # remove .git-keep-empty files that get installed
 find %{buildroot} -name .git-keep-empty | xargs rm -f
@@ -58,7 +58,7 @@ find %{buildroot} -name .git-keep-empty | xargs rm -f
 %doc README.md
 %doc AUTHORS
 %doc ChangeLog
-%{pydefault_sitelib}/tripleo_image_elements*
+%{pyver_sitelib}/tripleo_image_elements*
 %{_datadir}/tripleo-image-elements
 
 %changelog
