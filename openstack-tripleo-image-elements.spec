@@ -32,6 +32,7 @@ BuildRequires:	python%{pyver}-pbr
 BuildRequires:	python-d2to1
 %else
 BuildRequires:	python%{pyver}-d2to1
+BuildRequires:  /usr/bin/pathfix.py
 %endif
 
 Requires:	diskimage-builder
@@ -52,6 +53,11 @@ program.
 
 # remove .git-keep-empty files that get installed
 find %{buildroot} -name .git-keep-empty | xargs rm -f
+
+%if %{pyver} == 3
+# Fix shebangs for Python 3-only distros
+pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}%{_datadir}/tripleo-image-elements/os-svc-install/bin/map-services-tripleo
+%endif
 
 %files
 %doc LICENSE
