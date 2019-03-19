@@ -61,7 +61,6 @@ pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}%{_datadir}/triple
 
 %files
 %doc LICENSE
-%doc README.md
 %doc AUTHORS
 %doc ChangeLog
 %{pyver_sitelib}/tripleo_image_elements*
