@@ -4,7 +4,7 @@
 
 Name:		openstack-tripleo-image-elements
 Summary:	OpenStack TripleO Image Elements for diskimage-builder
-Version:    8.0.2
+Version:    8.0.3
 Release:    1%{?dist}
 License:	ASL 2.0
 Group:		System Environment/Base
@@ -48,6 +48,9 @@ find %{buildroot} -name .git-keep-empty | xargs rm -f
 %{_datadir}/tripleo-image-elements
 
 %changelog
+* Fri Sep 13 2019 RDO <dev@lists.rdoproject.org> 8.0.3-1
+- Update to 8.0.3
+
 * Mon Mar 18 2019 RDO <dev@lists.rdoproject.org> 8.0.2-1
 - Update to 8.0.2
 
