@@ -17,8 +17,8 @@
 
 Name:		openstack-tripleo-image-elements
 Summary:	OpenStack TripleO Image Elements for diskimage-builder
-Version:    XXX
-Release:    XXX
+Version:    10.6.0
+Release:    1%{?dist}
 License:	ASL 2.0
 Group:		System Environment/Base
 URL:		https://wiki.openstack.org/wiki/TripleO
@@ -65,3 +65,6 @@ pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}%{_datadir}/triple
 %{_datadir}/tripleo-image-elements
 
 %changelog
+* Mon Oct 21 2019 RDO <dev@lists.rdoproject.org> 10.6.0-1
+- Update to 10.6.0
+
