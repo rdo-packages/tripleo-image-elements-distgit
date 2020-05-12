@@ -1,15 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver 3
-%else
-%global pyver 2
-%endif
-
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # Turn off the brp-python-bytecompile script
@@ -25,12 +13,10 @@ URL:		https://wiki.openstack.org/wiki/TripleO
 Source0:	https://tarballs.openstack.org/tripleo-image-elements/tripleo-image-elements-%{upstream_version}.tar.gz
 
 BuildArch:	noarch
-BuildRequires:	python%{pyver}-devel
-BuildRequires:	python%{pyver}-setuptools
-BuildRequires:	python%{pyver}-pbr
-%if %{pyver} == 3
+BuildRequires:	python3-devel
+BuildRequires:	python3-setuptools
+BuildRequires:	python3-pbr
 BuildRequires:  /usr/bin/pathfix.py
-%endif
 
 Requires:	diskimage-builder
 
@@ -43,25 +29,23 @@ program.
 %setup -q -n tripleo-image-elements-%{upstream_version}
 
 %build
-%{pyver_build}
+%{py3_build}
 
 %install
-%{pyver_install}
+%{py3_install}
 
 # remove .git-keep-empty files that get installed
 find %{buildroot} -name .git-keep-empty | xargs rm -f
 
-%if %{pyver} == 3
 # Fix shebangs for Python 3-only distros
 pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}%{_datadir}/tripleo-image-elements/os-svc-install/bin/map-services-tripleo
-%endif
 
 %files
 %doc LICENSE
 %doc README.rst
 %doc AUTHORS
 %doc ChangeLog
-%{pyver_sitelib}/tripleo_image_elements*
+%{python3_sitelib}/tripleo_image_elements*
 %{_datadir}/tripleo-image-elements
 
 %changelog
