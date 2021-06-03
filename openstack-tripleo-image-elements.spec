@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x5d2d1e4fb8d38e6af76c50d53d4fec30cf5ce3da
+%global sources_gpg_sign 0x4c29ff0e437f3351fd82bdf47c5a3bc787dc7035
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # Turn off the brp-python-bytecompile script
@@ -7,7 +7,7 @@
 
 Name:		openstack-tripleo-image-elements
 Summary:	OpenStack TripleO Image Elements for diskimage-builder
-Version:    12.2.0
+Version:    12.2.1
 Release:    1%{?dist}
 License:	ASL 2.0
 Group:		System Environment/Base
@@ -66,6 +66,9 @@ pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}%{_datadir}/triple
 %{_datadir}/tripleo-image-elements
 
 %changelog
+* Thu Jun 03 2021 RDO <dev@lists.rdoproject.org> 12.2.1-1
+- Update to 12.2.1
+
 * Mon Jan 04 2021 RDO <dev@lists.rdoproject.org> 12.2.0-1
 - Update to 12.2.0
 
