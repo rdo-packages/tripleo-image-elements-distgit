@@ -66,3 +66,4 @@ pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}%{_datadir}/triple
 %{_datadir}/tripleo-image-elements
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/tripleo-image-elements/commit/14c47f496a56e0f6c9fb444bc50f33cd42386b2f
