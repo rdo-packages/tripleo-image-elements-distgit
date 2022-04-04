@@ -58,3 +58,4 @@ pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}%{_datadir}/triple
 * Tue May 26 2020 RDO <dev@lists.rdoproject.org> 12.0.0-1
 - Update to 12.0.0
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/tripleo-image-elements/commit/78a9a1cf6e300ac356fecea8ef05e19b61cebf2e
