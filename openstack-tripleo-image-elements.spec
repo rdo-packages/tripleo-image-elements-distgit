@@ -54,8 +54,11 @@ program.
 # remove .git-keep-empty files that get installed
 find %{buildroot} -name .git-keep-empty | xargs rm -f
 
-# Fix shebangs for Python 3-only distros
-pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}%{_datadir}/tripleo-image-elements/os-svc-install/bin/map-services-tripleo
+# TODO remove this when https://review.opendev.org/c/openstack/tripleo-image-elements/+/838636 merges
+if [ -f "%{buildroot}%{_datadir}/tripleo-image-elements/os-svc-install/bin/map-services-tripleo" ]; then
+  # Fix shebangs for Python 3-only distros
+  pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}%{_datadir}/tripleo-image-elements/os-svc-install/bin/map-services-tripleo
+fi
 
 %files
 %doc LICENSE
